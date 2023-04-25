@@ -29,6 +29,7 @@
                 xmlns:str="http://exslt.org/strings"
                 xmlns:func="http://exslt.org/functions"
                 xmlns:fn="http://www.w3.org/2005/xpath-functions"
+                xmlns:file="http://expath.org/ns/file"
                 mc:Ignorable="w14 w15 wp14 a14"
                 version="1.0"
                 exclude-result-prefixes="java msxsl ext w o v WX aml w10"
