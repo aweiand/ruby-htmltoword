@@ -42,18 +42,39 @@
       <xsl:when test="not(@data-width) and not(@data-height) and not(contains(@style, 'width')) and not(contains(@style, 'height'))">
         <!-- Do not transfor images unless width and height are correctly specified -->
       </xsl:when>
+      
       <!-- Test of base64 images -->
       <xsl:when test="contains(@src, ';base64')">
-        <wp:inline distT="0" distB="0" distL="0" distR="0">
-          <a:graphic>
-              <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
-                <pic:pic>
-                  <img src="@src"/>
-                </pic:pic>
-              </a:graphicData>
-            </a:graphic>
-        </wp:inline>
+        <!-- INIT Test of base64 images -->
+        <w:drawing>
+          <wp:inline distT="0" distB="0" distL="0" distR="0">
+            <wp:extent cx="1534160" cy="1757680"/>
+            <wp:effectExtent l="0" t="0" r="0" b="0"/>
+            <wp:docPr>
+              <xsl:attribute name="id"><xsl:value-of select="count(preceding::img)+1" /></xsl:attribute>
+              <xsl:attribute name="name">Picture <xsl:value-of select="count(preceding::img)+1" /></xsl:attribute>
+            </wp:docPr>
+            <wp:cNvGraphicFramePr>
+              <a:graphicFrameLocks noChangeAspect="1"/>
+            </wp:cNvGraphicFramePr>
+            <a:graphic>
+                <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                  <pic:pic>
+                    <pic:nvPicPr>
+                      <pic:cNvPr>
+                        <xsl:attribute name="id"><xsl:value-of select="count(preceding::img)+1" /></xsl:attribute>
+                        <xsl:attribute name="title"><xsl:value-of select="@alt" /></xsl:attribute>
+                        <img src="@src"/>
+                      </pic:cNvPr>
+                    </pic:nvPicPr>
+                  </pic:pic>
+                </a:graphicData>
+              </a:graphic>
+          </wp:inline>
+        </w:drawing>
+        <!-- END Test of base64 images -->
       </xsl:when>
+      
       <xsl:otherwise>
         <w:drawing>
           <wp:inline distT="0" distB="0" distL="0" distR="0">
