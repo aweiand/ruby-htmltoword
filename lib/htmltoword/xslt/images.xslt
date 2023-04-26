@@ -42,6 +42,18 @@
       <xsl:when test="not(@data-width) and not(@data-height) and not(contains(@style, 'width')) and not(contains(@style, 'height'))">
         <!-- Do not transfor images unless width and height are correctly specified -->
       </xsl:when>
+      <!-- Test of base64 images -->
+      <xsl:when test="contains(@src, ';base64')">
+        <wp:inline distT="0" distB="0" distL="0" distR="0">
+          <a:graphic>
+              <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                <pic:pic>
+                  <img src="@src"/>
+                </pic:pic>
+              </a:graphicData>
+            </a:graphic>
+        </wp:inline>
+      </xsl:when>
       <xsl:otherwise>
         <w:drawing>
           <wp:inline distT="0" distB="0" distL="0" distR="0">
