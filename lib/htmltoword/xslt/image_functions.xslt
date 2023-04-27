@@ -136,7 +136,7 @@
           <xsl:value-of select="$data-value" />
         </xsl:when>
         <xsl:when test="contains($style, concat($type,':'))">
-          <xsl:value-of select="translate(str:tokenize(substring-after($style, concat($type,':')), ';')[1],'&#x20;&#x9;&#xD;&#xA;','')" />
+          <xsl:value-of select="translate(str:tokenize(substring-after($style, concat($type,':')), ';')[1],'&#x20;&#x9;&#xD;&#xA;&#x25;','')" />
         </xsl:when>
         <xsl:otherwise>1</xsl:otherwise>
       </xsl:choose>

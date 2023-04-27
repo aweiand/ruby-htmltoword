@@ -123,7 +123,7 @@ module Htmltoword
     def local_images(source)
       source.css('img').each_with_index do |image,i|
         filename = image['data-filename'] ? image['data-filename'] : image['src'].split("/").last
-        ext = File.extname(filename).delete(".").downcase
+        ext = File.extname(filename).delete(".")
 
         @image_files << { filename: "image#{i+1}.#{ext}", url: image['src'], ext: ext }
       end
