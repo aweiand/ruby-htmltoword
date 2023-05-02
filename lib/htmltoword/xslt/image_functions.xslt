@@ -27,7 +27,9 @@
         <xsl:with-param name="data-filename" select="$data-filename"/>
       </xsl:call-template>
     </xsl:variable>
-    <xsl:value-of select="substring-after($filename,'.')"/>
+    <!-- <xsl:value-of select="substring-after(substring-before($filename, '?'),'.')"/> -->
+    <!-- Possível issue aqui com nomes maiores de 4 caracteres. Ver: http://xsltransform.net/gWvjQfU -->
+    <xsl:value-of select="substring(substring-after($filename, '.'), 0, 4)"/>
   </xsl:template>
 
   <!-- template as function used to return the name of an image. -->

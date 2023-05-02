@@ -122,7 +122,7 @@ module Htmltoword
     #for all images to be embeded in the word document
     def local_images(source)
       source.css('img').each_with_index do |image,i|
-        filename = image['data-filename'] ? image['data-filename'] : image['src'].split("/").last
+        filename = image['data-filename'] ? image['data-filename'] : image['src'].split("/").last.split("?").first
         ext = File.extname(filename).delete(".")
 
         @image_files << { filename: "image#{i+1}.#{ext}", url: image['src'], ext: ext }
