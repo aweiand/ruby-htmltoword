@@ -64,7 +64,7 @@
                       <pic:cNvPr>
                         <xsl:attribute name="id"><xsl:value-of select="count(preceding::img)+1" /></xsl:attribute>
                         <xsl:attribute name="title"><xsl:value-of select="@alt" /></xsl:attribute>
-                        <xsl:attribute name="name"><xsl:call-template name="image-name">
+                        <xsl:attribute name="name">Picture.<xsl:call-template name="image-extension">
                           <xsl:with-param name="source" select="@src"/>
                           <xsl:with-param name="data-filename" select="@data-filename"/>
                         </xsl:call-template></xsl:attribute>

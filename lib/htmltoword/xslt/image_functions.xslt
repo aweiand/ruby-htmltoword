@@ -55,6 +55,10 @@
         <xsl:when test="not(contains($path, '/'))">
             <xsl:value-of select="$path" />
         </xsl:when>
+        <!-- <xsl:when test="contains($path, '?')"> -->
+            <!-- <xsl:value-of select="substring-after(substring-before($path, '?'), '/')" /> -->
+            <!-- <xsl:value-of select="substring(substring-before($path, '?'), 0, -8)"/> -->
+        <!-- </xsl:when> -->
         <xsl:otherwise>
           <xsl:call-template name="extract-filename-from-path">
             <xsl:with-param name="path" select="substring-after($path, '/')" />
