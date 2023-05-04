@@ -1,7 +1,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns="http://schemas.openxmlformats.org/package/2006/relationships"
                 version="1.0">
-  <xsl:output method="xml" encoding="utf-8" omit-xml-declaration="no" indent="yes" />
+  <xsl:output method="xml" encoding="UTF-8" standalone="yes" omit-xml-declaration="no" indent="yes" />
 
   <xsl:include href="./image_functions.xslt"/>
   <xsl:include href="./functions.xslt"/>
