@@ -69,6 +69,7 @@
                           <xsl:with-param name="data-filename" select="@data-filename"/>
                         </xsl:call-template></xsl:attribute>
                       </pic:cNvPr>
+                      <pic:cNvPicPr/>
                     </pic:nvPicPr>
                     <pic:cNvPicPr>
                       <a:picLocks noChangeAspect="1" noChangeArrowheads="1"/>
